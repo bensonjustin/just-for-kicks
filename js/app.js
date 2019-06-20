@@ -49,16 +49,81 @@ function showDes2(){
 
 //4. Add events to the all the thumbs up icon that will add a count for each time the icon is clicked on for any shoe.
 
+let thumbsUp = document.querySelectorAll('#thumbs');
+for (let i=0; i<thumbsUp.length; i++){
+thumbsUp[i].addEventListener('click', clickThumb);
+let thumbsUpCount = document.createElement('div');
+thumbsUpCount.id = 'numLikes';
+thumbsUp[i].appendChild(thumbsUpCount);
 
+function clickThumb(){
+    console.log('test')
+    numLikes[i].innerHTML++
+}
+}
 
 //5. Add an event to the plus icon that will increment the price of the Air Jordan V shoe each time the icon is clicked on.
 
+let priceInc = document.querySelector('#increase');
+priceInc.addEventListener('click', clickPlus);
+
+function clickPlus(){
+    let x = document.querySelector('#price4').childNodes[0];
+    x.data = Number(x.data) + 100;
+}
+
 //6. Add an event to the minus icon that will decrement the price of the Air Jordan VI shoe each time the icon is clicked on.
+
+let priceDec = document.querySelector("#decrease");
+priceDec.addEventListener('click', clickMinus);
+
+function clickMinus(){
+    let y = document.querySelector('#price5').childNodes[0];
+    y.data = Number(y.data) - 100;
+}
 
 //7. Add an event to the Air Jordan XI shoe that will show another colorway for that shoe after hovering over the image. 
 
+let shoeColor = document.querySelector("#main > div:nth-child(3) > div.block3.col-sm-4 > img");
+shoeColor.addEventListener('mouseover', changeColor);
+shoeColor.addEventListener('mouseout', changeColorBack);
+
+function changeColor(){
+    shoeColor.src = "https://www.flightclub.com/media/catalog/product/cache/1/small_image/360x257/9df78eab33525d08d6e5fb8d27136e95/8/0/805239_01.jpg"
+}
+function changeColorBack(){
+    shoeColor.src = "https://www.sneakerlegends.com/images/stories/virtuemart/product/378037623%20378037623%20378037623%20378037623.jpg"
+}
+
 //8. Add an event to the Air Jordan XII shoe that will increase the image by 50% after clicking on the image.
 
+let imgSize = document.querySelector("#main > div:nth-child(4) > div.block1.col-sm-4 > img");
+imgSize.addEventListener('click', incSize);
+
+function incSize(){
+    if (imgSize.style.width === "250px"){
+    imgSize.style.width = "150%";
+    imgSize.style.height = "auto";
+    }else{
+    imgSize.style.width = "250px";
+    imgSize.style.height = "250px";
+    }
+}
+
 //9. Add events to both the plus and minus icon that will add or decrease the price each time the respective icon is clicked on.
+console.log
+let price2inc = document.querySelectorAll('#oneUp');
+let price2dec = document.querySelector('#oneDown');
+
+price2inc.addEventListener('click', incPrice);
+price2dec.addEventListener('click', decPrice);
+console.log(price2inc);
+function incPrice(){
+    price2inc.querySelector('#price8').childNodes;
+}
+
+function decPrice(){
+    price2dec.querySelector('#price8').childNodes[1];
+}
 
 //10. Add an event to the Air Jordan XXVIII shoe that will show the famous 'crying Michael Jordan' meme after clicking on the image.
