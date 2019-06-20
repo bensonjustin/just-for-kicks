@@ -1,5 +1,5 @@
 // 1. Add an event to the 'See Details' content that will create an alert box that says 'Not Available in Hawaii.' after clicking on See Details.
-
+console.log(document.querySelectorAll("#main"))
 let avail = document.querySelector('#details');
 avail.addEventListener('click', add);
 
@@ -112,18 +112,49 @@ function incSize(){
 
 //9. Add events to both the plus and minus icon that will add or decrease the price each time the respective icon is clicked on.
 console.log
-let price2inc = document.querySelectorAll('#oneUp');
+let price2inc = document.querySelector('#oneUp');
 let price2dec = document.querySelector('#oneDown');
 
 price2inc.addEventListener('click', incPrice);
 price2dec.addEventListener('click', decPrice);
 console.log(price2inc);
 function incPrice(){
-    price2inc.querySelector('#price8').childNodes;
+    let price2incVal = document.querySelector('#price8').childNodes[0];
+    price2incVal.data = Number(price2incVal.data) + 100;
 }
 
 function decPrice(){
-    price2dec.querySelector('#price8').childNodes[1];
+    let price2decVal = document.querySelector('#price8').childNodes[0];
+    price2decVal.data = Number(price2decVal.data) - 100;
 }
 
 //10. Add an event to the Air Jordan XXVIII shoe that will show the famous 'crying Michael Jordan' meme after clicking on the image.
+
+let cryingBox = document.createElement('img');
+cryingBox.id = 'cryingMJ';
+cryingBox.src = 'https://media.npr.org/assets/img/2016/03/29/ap_090911089838_sq-3271237f28995f6530d9634ff27228cae88e3440-s800-c85.jpg';
+banner.appendChild(cryingBox);
+cryingBox.style.display = 'none'
+
+let modal = document.querySelector("#main > div:nth-child(4) > div.block3.col-sm-4 > img");
+modal.addEventListener('click', showCryingMJ);
+let modalBack = document.querySelector('#cryingMJ');
+modalBack.addEventListener('click', goBack);
+
+function showCryingMJ(){
+    cryingBox.style.display = 'none'
+    cryingBox.style.display = 'block'
+    cryingBox.style.width = '60%'
+    cryingBox.style.height = 'auto'
+    mjbanner.style.display = 'none'
+    menu.style.display = 'none'
+    shipping.style.display = 'none'
+    main.style.display = 'none'
+}
+function goBack(){
+    cryingBox.style.display = 'none'
+    mjbanner.style.display = 'block'
+    menu.style.display = 'block'
+    shipping.style.display = 'block'
+    main.style.display = 'block'
+}
